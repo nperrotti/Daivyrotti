@@ -23,7 +23,14 @@ Did You Know 8:
   6. A Critter can access its own grid by calling getGrid().
 
 Did You Know 9:
-
+  1. CrabCritter processes its actors the same as superclass Critter does
+  2. CrabCritter only eats actors in front of it and to the left and right of it, it does not eat the others
+  3. 
+  4. (4,3),(4,4),(4,5)
+  5. Sim: They randomly chose next location
+     Diff: CrabCritter's only move left and right, Critter's move anyway
+  6. if parameter loc in makeMove equals the Critter's current location 
+  7. processActors only removes non-Critters, and since CrabCritters are Critters, they are not removed
 
 
 A new type of Critter has appeared on the scene:
