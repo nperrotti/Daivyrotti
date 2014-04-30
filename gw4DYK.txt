@@ -28,6 +28,11 @@ Did You Know 9:
 
 A new type of Critter has appeared on the scene:
 GhostCritter Specs:
-This subclass of Critter can scare away other actors when it comes near them. If you are a neighbor of the GhostCritter, you change direction away from the GhostCritter and move forward two spaces.
-_______Critter Test Cases:
-<Precise descriptions of expected behavior on specific triggers (eg, method inputs). Adhere as closely as possible to prior examples shown in the GridWorld packet.>
+This subclass of Critter can scare away other actors (except Rocks, Flowers, and other GhostCritters) when it comes near them. If you are a neighbor of the GhostCritter, you change direction away from the GhostCritter and move forward two spaces. If they run off the edge of the grid, they remove themselves from the grid and may leave another GhostCritter behind. After processing the nearby actors, the GhostCritter moves the same way a Critter does.
+GhostCritter Test Cases:
+1. Surround the GhostCritter with neighbors in the center of the grid. They should turn around and flee two spaces. The GhostCritter should then move.
+2. Surround the GhostCritter with neighbors in a corner or edge of the grid. They should turn around and try to flee. If they are next to the edge of the grid, they should "die" and have a chance of leaving a GhostCritter behind. The GC should then move.
+3. Leave the GhostCritter in the center of the grid. It should move around normally.
+
+
+
