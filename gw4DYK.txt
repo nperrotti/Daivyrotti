@@ -23,3 +23,11 @@ Did You Know 8:
   6. A Critter can access its own grid by calling getGrid().
 
 Did You Know 9:
+
+
+
+A new type of Critter has appeared on the scene:
+GhostCritter Specs:
+This subclass of Critter can scare away other actors when it comes near them. If you are a neighbor of the GhostCritter, you change direction away from the GhostCritter and move forward two spaces.
+_______Critter Test Cases:
+<Precise descriptions of expected behavior on specific triggers (eg, method inputs). Adhere as closely as possible to prior examples shown in the GridWorld packet.>
