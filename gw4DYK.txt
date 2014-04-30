@@ -15,11 +15,11 @@ Did You Know 7:
   6. Critter has no constructor because it is a subclass of Actor, which already has a default constructor
 
 Did You Know 8:
-1. In ChameleonCritter, processActors() is overridden and different from that of Critter. This makes the ChameleonCritter process the actors differently from a Critter.
-2. The makeMove method calls super.makeMove because the ChameleonCritter behaves the same way as a Critter after it changes its direction when moving to a new location.
-3. You would make ChameleonCritter drop flowers in its old location when it moves by adding statements in makeMove() that keep track of the critter's old location and create a flower in that old location after the critter has moved.
-4. ChameleonCritter doesn't override the getActors() method because it accesses the same actors that a Critter does, so there is no need to modify the method.
-5. The Actor class contains the getLocation() method, and ChameleonCritter inherits this.
-6. A Critter can access its own grid by calling getGrid().
+  1. In ChameleonCritter, processActors() is overridden and different from that of Critter. This makes the ChameleonCritter process the actors differently from a Critter.
+  2. The makeMove method calls super.makeMove because the ChameleonCritter behaves the same way as a Critter after it changes its direction when moving to a new location.
+  3. You would make ChameleonCritter drop flowers in its old location when it moves by adding statements in makeMove() that keep track of the critter's old location and create a flower in that old location after the critter has moved.
+  4. ChameleonCritter doesn't override the getActors() method because it accesses the same actors that a Critter does, so there is no need to modify the method.
+  5. The Actor class contains the getLocation() method, and ChameleonCritter inherits this.
+  6. A Critter can access its own grid by calling getGrid().
 
 Did You Know 9:
