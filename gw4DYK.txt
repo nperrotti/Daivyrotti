@@ -25,7 +25,7 @@ Did You Know 8:
 Did You Know 9:
   1. CrabCritter processes its actors the same as superclass Critter does
   2. CrabCritter only eats actors in front of it and to the left and right of it, it does not eat the others
-  3. 
+  3. The CrabCritter can only eat the actors directly to the left, right, or up directions, so the method takes the list of adjacent actors and returns the locations with edible actors. 
   4. (4,3),(4,4),(4,5)
   5. Sim: They randomly chose next location
      Diff: CrabCritter's only move left and right, Critter's move anyway
