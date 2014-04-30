@@ -1,5 +1,5 @@
 Nicholas Perrotti Ivy Wong David Bang
-git@github.com:nperrotti/Daivyrotti
+git@github.com:nperrotti/gw45-Daivyrotti.git
 APCS pd 8
 HW34 -- GridWorld, Part 4
 2014-04-29
