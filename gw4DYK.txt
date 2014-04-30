@@ -4,6 +4,7 @@ APCS pd 8
 HW34 -- GridWorld, Part 4
 2014-04-29
 
+
 Did You Know 7:
   1. act, getActors, processActors, getMoveLocations, selectMoveLocation, makeMove
   2. getActors, processActors, getMoveLocations, selectMoveLocation, makeMov
@@ -14,6 +15,7 @@ Did You Know 7:
      c)makeMove - moves the Critter to the location selected in selectMoveLocation
   6. Critter has no constructor because it is a subclass of Actor, which already has a default constructor
 
+
 Did You Know 8:
   1. In ChameleonCritter, processActors() is overridden and different from that of Critter. This makes the ChameleonCritter process the actors differently from a Critter.
   2. The makeMove method calls super.makeMove because the ChameleonCritter behaves the same way as a Critter after it changes its direction when moving to a new location.
@@ -22,15 +24,20 @@ Did You Know 8:
   5. The Actor class contains the getLocation() method, and ChameleonCritter inherits this.
   6. A Critter can access its own grid by calling getGrid().
 
+
 Did You Know 9:
-  1. CrabCritter processes its actors the same as superclass Critter does
-  2. CrabCritter only eats actors in front of it and to the left and right of it, it does not eat the others
-  3. The CrabCritter can only eat the actors directly to the left, right, or up directions, so the method takes the list of adjacent actors and returns the locations with edible actors. 
-  4. (4,3),(4,4),(4,5)
-  5. Sim: They randomly chose next location
-     Diff: CrabCritter's only move left and right, Critter's move anyway
-  6. if parameter loc in makeMove equals the Critter's current location 
-  7. processActors only removes non-Critters, and since CrabCritters are Critters, they are not removed
+  1. CrabCritter processes its actors the same as superclass Critter does.It is only the individual steps of processActors, each of which are implemented 
+     in separate methods which will changed accordingly. The processActors method does not change in itself, it is only the used methods that have its code overwritten.
+  2. CrabCritter only eats actors in front of it and to the front-left and front-right of it.
+  3. The CrabCritter can only eat the actors directly to the front-left, front-right, or up directions, so the method takes the list of adjacent actors and returns the locations with possibly edible actors. 
+  4. The locations are (4,3),(4,4),(4,5)
+  5. Sim: Both of these Critters randomly chose their next location based on possible locations avaliable.
+     Diff: CrabCritter can only move left and right as it is a crab, Critter can move to any adjacent location to itself.
+  6. CrabCritter determines if it can move left or right. If not it should turn 90 degrees randomly to the right or left. If the CrabCritter determines the set of avaliable locations it can move to and
+     and there is not avaliable location to move to, CrabCritter sets the loc parameter to its own location value and turns when the makeMove method is called.
+  7. CrabCritter specifically can using the processActors method only removes non-rocks and non-Critters, and since CrabCritters are Critters, they are not removed
+
+
 
 
 A new type of Critter has appeared on the scene:
@@ -40,6 +47,3 @@ GhostCritter Test Cases:
 1. Surround the GhostCritter with neighbors in the center of the grid. They should turn around and flee two spaces. The GhostCritter should then move.
 2. Surround the GhostCritter with neighbors in a corner or edge of the grid. They should turn around and try to flee. If they are next to the edge of the grid, they should "die" and have a chance of leaving a GhostCritter behind. The GC should then move.
 3. Leave the GhostCritter in the center of the grid. It should move around normally.
-
-
-
