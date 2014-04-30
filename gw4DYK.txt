@@ -4,12 +4,14 @@ HW34 -- GridWorld, Part 4
 2014-04-29
 
 Did You Know 7:
-  1.
-  2.
-  3.
-  4.
-  5.
-  6.
+  1. act, getActors, processActors, getMoveLocations, selectMoveLocation, makeMove
+  2. getActors, processActors, getMoveLocations, selectMoveLocation, makeMov
+  3. yes, if the new subclass takes actors from different positions than Critter doees
+  4. a)tell them to move forward one space b)change their color c)remove them all
+  5. a)getMoveLocations - returns the places the critter can move
+     b)selectMoveLocation - selects one of the locations from getMoveLocations 
+     c)makeMove - moves the Critter to the location selected in selectMoveLocation
+  6. Critter has no constructor because it is a subclass of Actor, which already has a default constructor
 
 Did You Know 8:
 
