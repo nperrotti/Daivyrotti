@@ -8,7 +8,8 @@ HW34 -- GridWorld, Part 4
 Did You Know 7:
   1. act, getActors, processActors, getMoveLocations, selectMoveLocation, makeMove
   2. getActors, processActors, getMoveLocations, selectMoveLocation, makeMov
-  3. yes, if the new subclass takes actors from different positions than Critter doees
+  3. yes, because the new subclasses will take/process actors from different positions than Critter does due to different specifications for what actors and in what direction they are chosen.
+     ChameleonCritter will need to change its processActor method instead of the getActor method as it has the same method of getting actors as its base class but it doesn't eat them.
   4. a)tell them to move forward one space b)change their color c)remove them all
   5. a)getMoveLocations - returns the places the critter can move
      b)selectMoveLocation - selects one of the locations from getMoveLocations 
@@ -17,10 +18,11 @@ Did You Know 7:
 
 
 Did You Know 8:
-  1. In ChameleonCritter, processActors() is overridden and different from that of Critter. This makes the ChameleonCritter process the actors differently from a Critter.
+  1. In ChameleonCritter, processActors() is overridden and different from that of Critter. This makes the ChameleonCritter process the actors differently from a Critter. The ChameleonCritter does
+     not eat the actors, instead it randomly selects one and then changes its color to the Critter's color.
   2. The makeMove method calls super.makeMove because the ChameleonCritter behaves the same way as a Critter after it changes its direction when moving to a new location.
   3. You would make ChameleonCritter drop flowers in its old location when it moves by adding statements in makeMove() that keep track of the critter's old location and create a flower in that old location after the critter has moved.
-  4. ChameleonCritter doesn't override the getActors() method because it accesses the same actors that a Critter does, so there is no need to modify the method.
+  4. ChameleonCritter doesn't override the getActors() method because it accesses a list of actors in the same way that a Critter does, which is all actors adjacent to the Critter, so there is no need to modify the method.
   5. The Actor class contains the getLocation() method, and ChameleonCritter inherits this.
   6. A Critter can access its own grid by calling getGrid().
 
@@ -35,7 +37,7 @@ Did You Know 9:
      Diff: CrabCritter can only move left and right as it is a crab, Critter can move to any adjacent location to itself.
   6. CrabCritter determines if it can move left or right. If not it should turn 90 degrees randomly to the right or left. If the CrabCritter determines the set of avaliable locations it can move to and
      and there is not avaliable location to move to, CrabCritter sets the loc parameter to its own location value and turns when the makeMove method is called.
-  7. CrabCritter specifically can using the processActors method only removes non-rocks and non-Critters, and since CrabCritters are Critters, they are not removed
+  7. CrabCritter specifically can using the processActors method only to remove non-rocks and non-Critters, and since CrabCritters are Critters, they are not removed
 
 
 
