@@ -1,7 +1,7 @@
 import info.gridworld.actor.Actor;
 import info.gridworld.actor.Critter;
 import info.gridworld.actor.Flower;
-improt info.gridworld.grid.Location;
+import info.gridworld.grid.Location;
 import info.gridworld.grid.Grid;
 
 import java.util.ArrayList;
