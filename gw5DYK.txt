@@ -6,11 +6,11 @@ HW35 -- GridWorld, Part 5
 
 Do You Know?
 Set 10
-  1.
-  2.
-  3.
-  4.
-  5.
+  1. isValid is specified in the Grid interface. BoundedGrid and UnboundedGrid implement isValid.
+  2. getValidAdjacentLocations calls isValid. Other methods don't directly call isValid but rather call getValidAdjacentLocations, thereby indirectly calling isValid.
+  3. getNeighbors calls get and getOccupiedAdjacentLocations, the latter implemented in AbstractGrid and the former in BoundedGrid and UnboundedGrid
+  4. get must be used in getEmptyAdjacentLocations because it is the only way to test the vacantness of a location
+  5. the diagonal locations would not be included, therefore there are only 4 valid spaces to move rather than 8
 
 Do You Know?
 Set 11
@@ -22,11 +22,3 @@ Set 11
   6.
   7.
   8.
-
-Do You Know?
-Set 12
-  1.
-  2.
-  3.
-  4.
-  5.
