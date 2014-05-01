@@ -14,11 +14,11 @@ Set 10
 
 Do You Know?
 Set 11
-  1.
-  2.
-  3.
-  4.
-  5.
-  6.
-  7.
-  8.
+  1. the constructor of BoundedGrid will throw an error if there is no valid location
+  2. occupantArray[0].length. This based on the assumption that there is a valid location/number of columns
+  3. in order to be valid, a location must have a row >= 0 and < the number of rows, and a column >= 0 and < the number of columns.
+  4. getOccupiedLocations returns an ArrayList<Location>. O(r*c)
+  5. get returns E, or whichever type is being used. get requires a Location. O(1)
+  6. an invalid location will throw an error in put. O(1) 
+  7. remove returns a generic E. When you are remove a nonexistent actor from an empty location, null is returned. O(1)
+  8. This implementation is efficient because 3/4 methods run with a O(1) runtime.
