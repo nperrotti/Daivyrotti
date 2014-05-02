@@ -5,13 +5,14 @@ import info.gridworld.grid.*;
 import java.util.ArrayList; 
 import java.util.*; 
  
-public class UnboundedGrid2<E> extends AbstractGrid<E>{ 
-    private Object[][] occupantArray; 
-    private int dim; //current dimension of the occupantArray 
+public class Part5Exercise3<E> extends AbstractGrid<E>{ 
+	
+    private Object[][] a; 
+    private int n;
  
-    public UnboundedGrid2(){ 
-	    dim = 16; 
-	    occupantArray = new Object[dim][dim];; 
+    public Part5Exercise3(){ 
+	    n = 16; 
+	    a = new Object[n][n];; 
 	  } 
  
     public int getNumRows(){ 
@@ -27,77 +28,56 @@ public class UnboundedGrid2<E> extends AbstractGrid<E>{
     } 
 
     public ArrayList<Location> getOccupiedLocations(){ 
-	    ArrayList<Location> theLocations = new ArrayList<Location>(); 
- 
-	    // Look at all grid locations. 
-	    for (int r = 0; r < dim; r++){ 
-		    for (int c = 0; c < dim; c++){ 
-			     // If there's an object at this location, put it in the array. 
-			     Location loc = new Location(r, c); 
+	    ArrayList<Location> l = new ArrayList<Location>(); 
+	    for (int i = 0; i < n; i++){ 
+		    for (int j = 0; j < n; j++){ 
+			     Location loc = new Location(i, j); 
 			     if (get(loc) != null) 
-			        theLocations.add(loc); 
+			        l.add(loc); 
 		    } 
 	    } 
-      return theLocations; 
+      return l; 
     } 
  
     public E get(Location loc){ 
 	    if (!isValid(loc)) 
-	      throw new IllegalArgumentException("Location " + loc + " is not valid"); 
-	      //return null if a location is valid, but not in the array 
-	if(loc.getRow() >= dim || loc.getCol() >= dim) 
+	      throw new IllegalArgumentException("This location " + loc + " is unvalid"); 
+	if(loc.getRow() >= n || loc.getCol() >= n) 
 	    return null; 
-	return (E) occupantArray[loc.getRow()][loc.getCol()]; 
-	// unavoidable warning 
+	return (E) a[loc.getRow()][loc.getCol()];  
     } 
  
-    public E put(Location loc, E obj){ 
+    public E put(Location loc, E newObj){ 
 	if (loc == null) 
 	    throw new NullPointerException("loc == null"); 
-	if (obj == null) 
-	    throw new NullPointerException("obj == null"); 
- 
-	//if new location is out of the array, resize the array 
-	if (loc.getRow() >= dim || loc.getCol() >= dim) 
-	    resize(loc); 
- 
-	// Add the object to the grid. 
-	E oldOccupant = get(loc); 
-	occupantArray[loc.getRow()][loc.getCol()] = obj; 
-	return oldOccupant; 
+	if (newObj == null) 
+	    throw new NullPointerException("newObj == null"); 
+	if (loc.getRow() >= n || loc.getCol() >= n) 
+	    expand(loc); 
+	E prevObj = get(loc); 
+	a[loc.getRow()][loc.getCol()] = newObj; 
+	return preObj; 
     }
     
-    public E remove(Location loc) { 
+    public E remove(Location loc){ 
 	if (!isValid(loc)) 
-	    throw new IllegalArgumentException("Location " + loc 
-					       + " is not valid"); 
- 
-	// if location is valid and not in array, return null 
-	if(loc.getRow() >= dim || loc.getCol() >= dim) 
+	    throw new IllegalArgumentException("This location " + loc  + " is unvalid"); 
+	if(loc.getRow() >= n || loc.getCol() >= n) 
 	    return null; 
- 
-	// Remove the object from the grid. 
-	E r = get(loc); 
-	occupantArray[loc.getRow()][loc.getCol()] = null; 
-	return r; 
+	E obj = get(loc); 
+	a[loc.getRow()][loc.getCol()] = null; 
+	return obj; 
     } 
  
-    private void resize(Location loc){ 
-	//double the size until it is greater than needed 
-	int size = dim; 
+    private void expand(Location loc){ 
+	int size = n; 
 	while (loc.getRow() >= size || loc.getCol() >= size) 
-	    size *= 2; 
- 
-	//create a new array 
-	Object[][] temp = new Object[size][size]; 
- 
-	//copy over the old contents 
-	for(int r = 0; r < dim; r++) 
-	    for(int c = 0; c < dim; c++) 
-		temp[r][c] = occupantArray[r][c]; 
- 
-	//assign occupantArray the new array and update dim 
-	occupantArray = temp; 
-	dim = size; 
+	    size = size * 2; 
+	Object[][] newGrid = new Object[size][size];  
+	for(int i = 0; i < n; i++) 
+	    for(int j = 0; j < n; j++) 
+		newGrid[i][j] = a[i][j]; 
+	a = newGrid; 
+	n = size; 
     } 
 } 
