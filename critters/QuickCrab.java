@@ -18,10 +18,10 @@ public class QuickCrab extends CrabCritter{
         return l;
     }
 
-    private void checkTwoAdjacentLocations(ArrayList<Location> l, int direction){
+    private void checkTwoAdjacentLocations(ArrayList <Location> l, int direction){
         Grid g = getGrid();
-        Location l = getLocation();
-        Location adj = l.getAdjacentLocation(direction);
+        Location lo = getLocation();
+        Location adj = lo.getAdjacentLocation(direction);
         if(g.isValid(adj) && g.get(adj) == null){
             Location adjadj = adj.getAdjacentLocation(direction);
             if(g.isValid(adjadj) && g.get(adjadj)== null)

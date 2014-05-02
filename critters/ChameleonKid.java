@@ -4,10 +4,14 @@ import info.gridworld.actor.Flower;
 import info.gridworld.grid.Location;
 import info.gridworld.grid.Grid;
 
+
 import java.util.ArrayList;
 
 
+
+
 public class ChameleonKid extends ChameleonCritter{
+
 
     public ArrayList<Actor> getActors(){
         ArrayList<Actor> actors = new ArrayList<Actor>();
@@ -32,6 +36,5 @@ public class ChameleonKid extends ChameleonCritter{
         return locations;
     }
 
+
 }
-
-
